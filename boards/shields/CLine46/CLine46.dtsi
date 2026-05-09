@@ -102,6 +102,17 @@
         status = "disabled";
     };
 
+    // ROBA準拠のオートマウス用 temp-layer
+    //   require-prior-idle-ms=300 : 直前300ms以内に打鍵があれば発火しない (タイピング中の誤爆防止)
+    //   excluded-positions=<19 21>: J(19)/L(21) のみレイヤー維持 → MOUSE層のMB1/MB2と一致
+    //                               それ以外のキー押下で即レイヤー脱出する
+    mouse_temp_layer: mouse_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <300>;
+        excluded-positions = <19 21>;
+    };
+
     vbatt: vbatt {
         // Disable default battery monitoring
         status = "disabled";

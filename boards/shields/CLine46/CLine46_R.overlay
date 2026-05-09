@@ -66,11 +66,13 @@
 &trackball_listener {
     status = "okay";
     // X軸反転 + トラックボール操作で MOUSEレイヤー(4) を3000ms有効化
+    // mouse_temp_layer は CLine46.dtsi で excluded-positions=<19 21>(J/L) を設定済
+    // → J/L以外の打鍵で即レイヤー脱出 (roBa同等の挙動)
     input-processors = <&mouse_runtime_input_processor>,
         //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
         <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
-        <&zip_temp_layer 4 3000>;                           //MOUSEレイヤー自動有効化(roBa準拠)
+        <&mouse_temp_layer 4 3000>;                         //MOUSEレイヤー自動有効化 (J/L以外の打鍵で脱出)
 
 
     scroller {
