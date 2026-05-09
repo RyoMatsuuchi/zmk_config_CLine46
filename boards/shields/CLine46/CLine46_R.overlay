@@ -53,7 +53,8 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <600>;
+        // roBaに合わせてCPIを400に設定（旧600）
+        cpi = <400>;
         //swap-xy;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -64,15 +65,17 @@
 // Overrides for the input listener node
 &trackball_listener {
     status = "okay";
-    input-processors =<&mouse_runtime_input_processor>,
-        //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
+    // X軸反転 + トラックボール操作で MOUSEレイヤー(4) を3000ms有効化
+    input-processors = <&mouse_runtime_input_processor>,
+        //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
-        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;       //X軸反転
-        //<&zip_temp_layer 2 1000>;                            //オートマウスレイヤーの選択;
+        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
+        <&zip_temp_layer 4 3000>;                           //MOUSEレイヤー自動有効化(roBa準拠)
 
 
     scroller {
-        layers = <3>;
+        // SCROLLレイヤー番号をroBa準拠で5に変更（旧3）
+        layers = <5>;
         input-processors = 
             // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
             // <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
