@@ -177,13 +177,13 @@
         compatible = "zmk,keymap";
 
         // レイヤー 0: default
-        // 上段外側に TAB / BSPC、中段外側に LCTRL / ENTER、下段外側に LSHFT / RSHFT
+        // 上段外側に ESC / BSPC、中段外側に TAB / ENTER、下段外側に LSHFT / RSHFT
         // HRM: Z=LSHIFT, D=ARROW(L3), I=SCROLL(L5)
         // 親指 pos44 は roBa の F13 を踏襲
         default_layer {
             bindings = <
-&kp TAB     &kp Q              &kp W   &kp E           &kp R   &kp T                                                       &kp Y     &kp U   &lt_hp 5 I  &kp O    &kp P                          &kp BSPC
-&kp LCTRL   &kp A              &kp S   &lt_hp 3 D      &kp F   &kp G                                                       &kp H     &kp J   &kp K       &kp L    &kp QUESTION                   &kp ENTER
+&kp ESC     &kp Q              &kp W   &kp E           &kp R   &kp T                                                       &kp Y     &kp U   &lt_hp 5 I  &kp O    &kp P                          &kp BSPC
+&kp TAB     &kp A              &kp S   &lt_hp 3 D      &kp F   &kp G                                                       &kp H     &kp J   &kp K       &kp L    &kp QUESTION                   &kp ENTER
 &kp LSHFT   &mt LEFT_SHIFT Z   &kp X   &kp C           &kp V   &kp B                                                       &kp N     &kp M   &kp COMMA   &kp DOT  &lt_to_layer_0 4 SLASH         &kp RSHFT
             &kp LALT  &kp LWIN  &kp TAB  &kp LCTRL  &lt 2 LANG2  &kp SPACE         &lt_to_layer_0 6 SEMICOLON  &lt 1 LANG1                                          &kp F13                        &lt 5 ESC
             >;
