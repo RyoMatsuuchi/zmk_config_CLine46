@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: CLine46}
 layers:
   default:
-  - TAB
+  - ESC
   - Q
   - W
   - E
@@ -13,7 +13,7 @@ layers:
   - O
   - P
   - BSPC
-  - LCTRL
+  - TAB
   - A
   - S
   - {t: D, h: ARROW}
