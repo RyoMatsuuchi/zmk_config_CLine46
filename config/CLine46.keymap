@@ -192,7 +192,7 @@
         // レイヤー 1: FUNCTION (数字 + 記号 + 括弧)
         FUNCTION {
             bindings = <
-&trans   &kp N1          &kp N2     &kp N3     &kp N4              &kp N5                                                  &kp PLUS        &kp PIPE        &kp LPAR  &kp RPAR  &kp EQUAL          &trans
+&trans   &kp N1          &kp N2     &kp N3     &kp N4              &kp N5                                                  &kp PLUS        &kp PIPE        &kp LPAR  &kp RPAR  &kp EQUAL          &kp DELETE
 &trans   &kp SEMICOLON   &kp COLON  &kp SQT    &kp DOUBLE_QUOTES   &kp GRAVE                                               &kp MINUS       &kp SLASH       &kp LBRC  &kp RBRC  &kp ASTERISK       &macro_launcher
 &trans   &trans          &kp N7     &kp N8     &kp N9              &kp TILDE                                               &kp UNDERSCORE  &kp BACKSLASH   &kp LBKT  &kp RBKT  &kp DELETE         &trans
             &trans  &trans  &trans  &trans  &trans  &trans                              &trans  &trans                                                                          &trans              &trans
