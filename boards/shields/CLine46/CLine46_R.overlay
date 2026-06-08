@@ -53,8 +53,10 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        // 移動量を控えめに上げるため CPIを500へ (roBa準拠の400から+25%)
-        cpi = <500>;
+        // CPIはドライバ実装上200刻みで量子化される(cpi/200の整数除算)。
+        // 端数は効かない(例: 500も520も実効400)ため roBa準拠の実効400に正規化し、
+        // 移動量の倍率調整は下の trackball_listener の zip_xy_scaler で行う。
+        cpi = <400>;
         //swap-xy;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -72,6 +74,7 @@
         //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
         <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
+        <&zip_xy_scaler 13 10>,                             //移動量を1.3倍に拡大 (13/10)
         <&mouse_temp_layer 4 3000>;                         //MOUSEレイヤー自動有効化 (J/L以外の打鍵で脱出)
 
 
